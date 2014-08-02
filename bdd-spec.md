@@ -98,7 +98,7 @@ catch ( error ) {
 
 <a name="sample-file"></a>
 # Sample file
-should.
+#1 comparison.
 
 ```js
 var parsed = tifParser.parse( fs.readFileSync( 'sample1.txt' ).toString() ) ;

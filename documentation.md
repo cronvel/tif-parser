@@ -4,10 +4,10 @@
 
 This is a simple parser for Tab Indented Format (TIF, the spec of this format is currently in progress).
 
-It transform a text file into nested objects.
+It transforms a text file into nested objects.
 
 While it is too general to produce anything by itself, it is actually the first stage of more complicated
-and specific parser.
+and specific parsers.
 
 * License: MIT
 * Current status: alpha / unstable
