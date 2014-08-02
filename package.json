@@ -1,0 +1,38 @@
+{
+  "name": "tif-parser",
+  "version": "0.0.1",
+  "description": "Tab Indented Format Parser used as first stage parser.",
+  "main": "lib/tifParser.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+    "tree-kit": "0.0.4",
+    "expect.js": "~0.3.1",
+    "jshint": "~2.4.4",
+    "mocha": "~1.17.1"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cronvel/tif-parser.git"
+  },
+  "keywords": [
+    "tif",
+    "tab",
+    "indented",
+    "format",
+    "parser",
+    "stage",
+    "csk"
+  ],
+  "author": "Cédric Ronvel",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cronvel/tif-parser/issues"
+  }
+}

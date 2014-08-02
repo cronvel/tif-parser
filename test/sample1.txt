@@ -1,0 +1,24 @@
+
+# Starting comment
+
+Big One
+	medium1
+	medium2
+		# Comment #1
+		little1
+		# Comment #2
+		little2
+	medium3 # with a comment
+		# Comment #3
+	medium4 with many words
+	medium5 with many words # and a comment
+
+
+
+Big2
+
+# The next node is not a child of this comment
+
+	not a \#comment here
+	
+	
