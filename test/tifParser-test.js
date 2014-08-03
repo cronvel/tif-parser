@@ -33,6 +33,9 @@ var tree = require( 'tree-kit' ) ;
 var expect = require( 'expect.js' ) ;
 var fs = require( 'fs' ) ;
 
+// Change directory if necessary: sample files should be loaded accordingly
+if ( process.cwd() !== __dirname ) { process.chdir( __dirname ) ; }
+
 
 
 
