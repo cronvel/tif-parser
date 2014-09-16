@@ -149,6 +149,137 @@ describe( "Single line" , function() {
 } ) ;
 
 
+	
+describe( "Escape sequences" , function() {
+	
+	it( "\\n should be replaced by a newline" , function() {
+		
+		expect( tifParser.parse( 'This content have\\na newline' ) ).to.eql( {
+			depth: 0,
+			children: [ {
+				depth: 1,
+				line: 1,
+				content: 'This content have\na newline',
+				comment: undefined,
+				children: []
+			} ]
+		} ) ;
+	} ) ;
+	
+	it( "\\r should be replaced by a carriage return" , function() {
+		
+		expect( tifParser.parse( 'This content have\\ra carriage return' ) ).to.eql( {
+			depth: 0,
+			children: [ {
+				depth: 1,
+				line: 1,
+				content: 'This content have\ra carriage return',
+				comment: undefined,
+				children: []
+			} ]
+		} ) ;
+	} ) ;
+	
+	it( "\\t should be replaced by a tab" , function() {
+		
+		expect( tifParser.parse( 'This content have\\ta tab' ) ).to.eql( {
+			depth: 0,
+			children: [ {
+				depth: 1,
+				line: 1,
+				content: 'This content have\ta tab',
+				comment: undefined,
+				children: []
+			} ]
+		} ) ;
+	} ) ;
+	
+	it( "\\\\ should be replaced by a single backslash" , function() {
+		
+		expect( tifParser.parse( 'This content have \\\\ a single backslash' ) ).to.eql( {
+			depth: 0,
+			children: [ {
+				depth: 1,
+				line: 1,
+				content: 'This content have \\ a single backslash',
+				comment: undefined,
+				children: []
+			} ]
+		} ) ;
+	} ) ;
+	
+	it( "\\# should escape the comment" , function() {
+		
+		expect( tifParser.parse( 'This is not \\# a comment' ) ).to.eql( {
+			depth: 0,
+			children: [ {
+				depth: 1,
+				line: 1,
+				content: 'This is not # a comment',
+				comment: undefined,
+				children: []
+			} ]
+		} ) ;
+	} ) ;
+	
+	it( "\\\\# should *NOT* escape the comment" , function() {
+		
+		expect( tifParser.parse( 'This is \\\\# a comment' ) ).to.eql( {
+			depth: 0,
+			children: [ {
+				depth: 1,
+				line: 1,
+				content: 'This is \\',
+				comment: 'a comment',
+				children: []
+			} ]
+		} ) ;
+	} ) ;
+	
+	it( "\\\\\\# should escape the comment" , function() {
+		
+		expect( tifParser.parse( 'This is not \\\\\\# a comment' ) ).to.eql( {
+			depth: 0,
+			children: [ {
+				depth: 1,
+				line: 1,
+				content: 'This is not \\# a comment',
+				comment: undefined,
+				children: []
+			} ]
+		} ) ;
+	} ) ;
+	
+	it( "\\\\\\\\# should *NOT* escape the comment" , function() {
+		
+		expect( tifParser.parse( 'This is \\\\\\\\# a comment' ) ).to.eql( {
+			depth: 0,
+			children: [ {
+				depth: 1,
+				line: 1,
+				content: 'This is \\\\',
+				comment: 'a comment',
+				children: []
+			} ]
+		} ) ;
+	} ) ;
+	
+	it( "should be able to process a mixing of escape sequences" , function() {
+		
+		expect( tifParser.parse( 'mixing\\nmultiple\\rescape\\t\\t\\tsequences\\#\\#\\\\\\t\\n\\t' ) ).to.eql( {
+			depth: 0,
+			children: [ {
+				depth: 1,
+				line: 1,
+				content: 'mixing\nmultiple\rescape\t\t\tsequences##\\\t\n\t',
+				comment: undefined,
+				children: []
+			} ]
+		} ) ;
+	} ) ;
+} ) ;
+
+
 
 describe( "Sample file" , function() {
 	
@@ -255,7 +386,7 @@ describe( "Sample file" , function() {
 						{
 							depth: 2,
 							line: 22,
-							content: "not a \\#comment here",
+							content: "not a #comment here",
 							comment: undefined,
 							children: []
 						}

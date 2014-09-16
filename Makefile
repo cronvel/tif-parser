@@ -48,7 +48,7 @@ log/jshint.log: log/npm-dev-install.log lib/tifParser.js test/tifParser-test.js
 
 # Mocha BDD STDOUT test
 log/mocha.log: log/npm-dev-install.log lib/tifParser.js test/tifParser-test.js
-	${MOCHA} test/tifParser-test.js -R list | tee log/mocha.log ; exit $${PIPESTATUS[0]}
+	${MOCHA} test/tifParser-test.js -R spec | tee log/mocha.log ; exit $${PIPESTATUS[0]}
 
 # README
 README.md: documentation.md bdd-spec.md
