@@ -72,6 +72,7 @@ describe( "Single line" , function() {
 			depth: 0,
 			children: [ {
 				depth: 1,
+				line: 1,
 				content: 'Hello',
 				comment: undefined,
 				children: []
@@ -85,6 +86,7 @@ describe( "Single line" , function() {
 			depth: 0,
 			children: [ {
 				depth: 1,
+				line: 1,
 				content: 'Hello world! How are you?',
 				comment: undefined,
 				children: []
@@ -98,6 +100,7 @@ describe( "Single line" , function() {
 			depth: 0,
 			children: [ {
 				depth: 1,
+				line: 1,
 				content: undefined,
 				comment: 'This is a comment',
 				children: []
@@ -111,6 +114,7 @@ describe( "Single line" , function() {
 			depth: 0,
 			children: [ {
 				depth: 1,
+				line: 1,
 				content: 'Hello world!',
 				comment: 'This is a comment',
 				children: []
@@ -124,6 +128,7 @@ describe( "Single line" , function() {
 			depth: 0,
 			children: [ {
 				depth: 1,
+				line: 1,
 				content: 'Hello world!',
 				comment: 'This is a comment',
 				children: []
@@ -156,6 +161,7 @@ describe( "Sample file" , function() {
 			children: [
 				{
 					depth: 1,
+					line: 2,
 					content: undefined,
 					comment: "Starting comment",
 					children: []
@@ -163,39 +169,46 @@ describe( "Sample file" , function() {
 				{
 					depth: 1,
 					content: "Big One",
+					line: 4,
 					comment: undefined,
 					children: [
 						{
 							depth: 2,
+							line: 5,
 							content: "medium1",
 							comment: undefined,
 							children: []
 						},
 						{
 							depth: 2,
+							line: 6,
 							content: "medium2",
 							comment: undefined,
 							children: [
 								{
 									depth: 3,
+									line: 7,
 									content: undefined,
 									comment: "Comment #1",
 									children: []
 								},
 								{
 									depth: 3,
+									line: 8,
 									content: "little1",
 									comment: undefined,
 									children: []
 								},
 								{
 									depth: 3,
+									line: 9,
 									content: undefined,
 									comment: "Comment #2",
 									children: []
 								},
 								{
 									depth: 3,
+									line: 10,
 									content: "little2",
 									comment: undefined,
 									children: []
@@ -204,11 +217,13 @@ describe( "Sample file" , function() {
 						},
 						{
 							depth: 2,
+							line: 11,
 							content: "medium3",
 							comment: "with a comment",
 							children: [
 								{
 									depth: 3,
+									line: 12,
 									content: undefined,
 									comment: "Comment #3",
 									children: []
@@ -217,12 +232,14 @@ describe( "Sample file" , function() {
 						},
 						{
 							depth: 2,
+							line: 13,
 							content: "medium4 with many words",
 							comment: undefined,
 							children: []
 						},
 						{
 							depth: 2,
+							line: 14,
 							content: "medium5 with many words",
 							comment: "and a comment",
 							children: []
@@ -231,11 +248,13 @@ describe( "Sample file" , function() {
 				},
 				{
 					depth: 1,
+					line: 18,
 					content: "Big2",
 					comment: undefined,
 					children: [
 						{
 							depth: 2,
+							line: 22,
 							content: "not a \\#comment here",
 							comment: undefined,
 							children: []
@@ -244,6 +263,7 @@ describe( "Sample file" , function() {
 				},
 				{
 					depth: 1,
+					line: 20,
 					content: undefined,
 					comment: "The next node is not a child of this comment",
 					children: []

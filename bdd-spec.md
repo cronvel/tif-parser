@@ -21,6 +21,7 @@ expect( tifParser.parse( 'Hello' ) ).to.eql( {
 	depth: 0,
 	children: [ {
 		depth: 1,
+		line: 1,
 		content: 'Hello',
 		comment: undefined,
 		children: []
@@ -35,6 +36,7 @@ expect( tifParser.parse( 'Hello world! How are you?' ) ).to.eql( {
 	depth: 0,
 	children: [ {
 		depth: 1,
+		line: 1,
 		content: 'Hello world! How are you?',
 		comment: undefined,
 		children: []
@@ -49,6 +51,7 @@ expect( tifParser.parse( '# This is a comment' ) ).to.eql( {
 	depth: 0,
 	children: [ {
 		depth: 1,
+		line: 1,
 		content: undefined,
 		comment: 'This is a comment',
 		children: []
@@ -63,6 +66,7 @@ expect( tifParser.parse( 'Hello world! # This is a comment' ) ).to.eql( {
 	depth: 0,
 	children: [ {
 		depth: 1,
+		line: 1,
 		content: 'Hello world!',
 		comment: 'This is a comment',
 		children: []
@@ -77,6 +81,7 @@ expect( tifParser.parse( '  \t Hello world! \t   #   \t  This is a comment \t   
 	depth: 0,
 	children: [ {
 		depth: 1,
+		line: 1,
 		content: 'Hello world!',
 		comment: 'This is a comment',
 		children: []
@@ -108,6 +113,7 @@ var expected = {
 	children: [
 		{
 			depth: 1,
+			line: 2,
 			content: undefined,
 			comment: "Starting comment",
 			children: []
@@ -115,39 +121,46 @@ var expected = {
 		{
 			depth: 1,
 			content: "Big One",
+			line: 4,
 			comment: undefined,
 			children: [
 				{
 					depth: 2,
+					line: 5,
 					content: "medium1",
 					comment: undefined,
 					children: []
 				},
 				{
 					depth: 2,
+					line: 6,
 					content: "medium2",
 					comment: undefined,
 					children: [
 						{
 							depth: 3,
+							line: 7,
 							content: undefined,
 							comment: "Comment #1",
 							children: []
 						},
 						{
 							depth: 3,
+							line: 8,
 							content: "little1",
 							comment: undefined,
 							children: []
 						},
 						{
 							depth: 3,
+							line: 9,
 							content: undefined,
 							comment: "Comment #2",
 							children: []
 						},
 						{
 							depth: 3,
+							line: 10,
 							content: "little2",
 							comment: undefined,
 							children: []
@@ -156,11 +169,13 @@ var expected = {
 				},
 				{
 					depth: 2,
+					line: 11,
 					content: "medium3",
 					comment: "with a comment",
 					children: [
 						{
 							depth: 3,
+							line: 12,
 							content: undefined,
 							comment: "Comment #3",
 							children: []
@@ -169,12 +184,14 @@ var expected = {
 				},
 				{
 					depth: 2,
+					line: 13,
 					content: "medium4 with many words",
 					comment: undefined,
 					children: []
 				},
 				{
 					depth: 2,
+					line: 14,
 					content: "medium5 with many words",
 					comment: "and a comment",
 					children: []
@@ -183,11 +200,13 @@ var expected = {
 		},
 		{
 			depth: 1,
+			line: 18,
 			content: "Big2",
 			comment: undefined,
 			children: [
 				{
 					depth: 2,
+					line: 22,
 					content: "not a \\#comment here",
 					comment: undefined,
 					children: []
@@ -196,6 +215,7 @@ var expected = {
 		},
 		{
 			depth: 1,
+			line: 20,
 			content: undefined,
 			comment: "The next node is not a child of this comment",
 			children: []
