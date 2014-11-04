@@ -1,6 +1,6 @@
 {
   "name": "tif-parser",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Tab Indented Format Parser used as first stage parser.",
   "main": "lib/tifParser.js",
   "directories": {
@@ -11,7 +11,7 @@
     "expect.js": "^0.3.1",
     "jshint": "^2.5.5",
     "mocha": "^1.21.4",
-    "tree-kit": "^0.2.4"
+    "tree-kit": "^0.3.1"
   },
   "scripts": {
     "test": "mocha"
