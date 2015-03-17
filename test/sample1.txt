@@ -21,4 +21,22 @@ Big2
 
 	not a \#comment here
 	
+
+Big3
+	> This is
+	a multi-line
+	block of
+	text
 	
+	> This is
+	  another one
+		and this # is not a comment
+	> This is still the same block of text
+	
+	A regular text-node
+
+	> One line
+This does not belong to the previous block
+
+
+

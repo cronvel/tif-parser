@@ -357,6 +357,49 @@ var expected = {
 			content: undefined,
 			comment: "The next node is not a child of this comment",
 			children: []
+		} ,
+		{
+			depth: 1,
+			line: 25,
+			content: "Big3",
+			comment: undefined,
+			children: [
+				{
+					depth: 2,
+					line: 26,
+					content: "This is\na multi-line\nblock of\ntext",
+					comment: undefined,
+					children: []
+				} ,
+				{
+					depth: 2,
+					line: 31,
+					content: "This is\n  another one\n\tand this # is not a comment\n> This is still the same block of text",
+					comment: undefined,
+					children: []
+				} ,
+				{
+					depth: 2,
+					line: 36,
+					content: "A regular text-node",
+					comment: undefined,
+					children: []
+				} ,
+				{
+					depth: 2,
+					line: 38,
+					content: "One line",
+					comment: undefined,
+					children: []
+				} ,
+			]
+		} ,
+		{
+			depth: 1,
+			line: 39,
+			content: "This does not belong to the previous block",
+			comment: undefined,
+			children: []
 		}
 	]
 } ;
