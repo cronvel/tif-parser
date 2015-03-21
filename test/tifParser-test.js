@@ -3,7 +3,7 @@
 	
 	The MIT License (MIT)
 	
-	Copyright (c) 2014 Cédric Ronvel 
+	Copyright (c) 2014, 2015 Cédric Ronvel 
 	
 	Permission is hereby granted, free of charge, to any person obtaining a copy
 	of this software and associated documentation files (the "Software"), to deal
@@ -146,8 +146,72 @@ describe( "Single line" , function() {
 			expect( error.message ).to.match( /Indentation error/ ) ;
 		}
 	} ) ;
+	
+	it( "block of text (done in sample1.txt only for instance)" ) ;
+	
 } ) ;
 
+
+
+describe( "Custom comment mark" , function() {
+
+	it( "with a comment, should return a root node with one child, no content and all words as comment" , function() {
+		
+		expect( tifParser.parse( '# This is *NOT* a comment' , { commentMark: '//' } ) ).to.eql( {
+			depth: 0,
+			children: [ {
+				depth: 1,
+				line: 1,
+				content: '# This is *NOT* a comment',
+				comment: undefined,
+				children: []
+			} ]
+		} ) ;
+	} ) ;
+	
+	it( "with a comment, should return a root node with one child, no content and all words as comment" , function() {
+		
+		expect( tifParser.parse( '// This is a comment' , { commentMark: '//' } ) ).to.eql( {
+			depth: 0,
+			children: [ {
+				depth: 1,
+				line: 1,
+				content: undefined,
+				comment: 'This is a comment',
+				children: []
+			} ]
+		} ) ;
+	} ) ;
+	
+	it( "with content and comment, should return a root node with one child, having content and comment" , function() {
+		
+		expect( tifParser.parse( 'Hello world! # This is *NOT* a comment' , { commentMark: '//' } ) ).to.eql( {
+			depth: 0,
+			children: [ {
+				depth: 1,
+				line: 1,
+				content: 'Hello world! # This is *NOT* a comment',
+				comment: undefined,
+				children: []
+			} ]
+		} ) ;
+	} ) ;
+	
+	it( "with content and comment, should return a root node with one child, having content and comment" , function() {
+		
+		expect( tifParser.parse( 'Hello world! // This is a comment' , { commentMark: '//' } ) ).to.eql( {
+			depth: 0,
+			children: [ {
+				depth: 1,
+				line: 1,
+				content: 'Hello world!',
+				comment: 'This is a comment',
+				children: []
+			} ]
+		} ) ;
+	} ) ;
+} ) ;
+	
 
 	
 describe( "Escape sequences" , function() {
@@ -190,6 +254,35 @@ describe( "Escape sequences" , function() {
 				content: 'This content have\ta tab',
 				comment: undefined,
 				children: []
+			} ]
+		} ) ;
+	} ) ;
+	
+	it( "\\> should be replaced by a >" , function() {
+		
+		expect( tifParser.parse( 'Parent\n\t\\> Not\n\ta block' ) ).to.eql( {
+			depth: 0,
+			children: [ {
+				depth: 1,
+				line: 1,
+				content: 'Parent',
+				comment: undefined,
+				children: [
+					{
+						depth: 2,
+						line: 2,
+						content: '> Not',
+						comment: undefined,
+						children: []
+					} ,
+					{
+						depth: 2,
+						line: 3,
+						content: 'a block',
+						comment: undefined,
+						children: []
+					}
+				]
 			} ]
 		} ) ;
 	} ) ;
