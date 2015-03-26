@@ -1,13 +1,13 @@
 {
   "name": "tif-parser",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Tab Indented Format Parser used as first stage parser.",
   "main": "lib/tifParser.js",
   "directories": {
     "test": "test"
   },
   "dependencies": {
-    "string-kit": "^0.1.6"
+    "string-kit": "^0.1.7"
   },
   "devDependencies": {
     "expect.js": "^0.3.1",
