@@ -35,5 +35,20 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/cronvel/tif-parser/issues"
+  },
+  "config": {
+    "tea-time": {
+      "coverDir": [
+        "lib"
+      ]
+    }
+  },
+  "copyright": {
+    "title": "Tab Indented Parser",
+    "years": [
+      2014,
+      2016
+    ],
+    "owner": "Cédric Ronvel"
   }
 }
